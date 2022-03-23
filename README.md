@@ -62,7 +62,8 @@ A Pokemon discord bot implemented in python. Contains pokemon minigames, a simpl
 
 ![Poll](assets/poll.png)
 - View information about the server or a discord member. Shows join date, ID, Name, etc.
-
+### PostgreSQL
+- Information on the tables used are in postgres.pdf
 
 
 
