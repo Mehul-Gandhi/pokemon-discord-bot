@@ -175,6 +175,7 @@ async def prefix(ctx, new_prefix):
 ###############
 ##REMINDERS####
 ###############
+
 @client.event
 async def on_message(message):
     """Sends a message to a user if they have a message in their inbox and nrm is not toggled.
@@ -506,135 +507,9 @@ async def on_message(message):
             f"{random.choice(responses)} {format(message.author.mention)} {random.choice(emojis)}. The current server prefix is {prefix}")
 
 
-@client.command()
-@commands.is_owner()
-async def a(ctx, channel: int, *, message):
-    bot = client
-    channel = bot.get_channel(channel)
-    if channel:
-        await channel.send(message)
-    else:
-        await ctx.send('Could not find that channel')
 
 
 
-
-
-#
-# @client.command()
-# async def guessC(ctx):
-#     """Guess a random number selected between 1 and 100."""
-#     global game
-#     if ctx.channel.id in game:
-#         return
-#     else:
-#         await ctx.send(f"Hello {ctx.guild.name}! I'm thinking of a number between 1 and 100." +
-#                        f" You are given 10 tries to find the number. Good luck!")
-#         game[ctx.channel.id] = ctx.author.id
-#         number = random.randint(1, 100)
-#         tries = 0
-#
-#         async def win(guess: int):
-#             nonlocal tries
-#             if guess == number:
-#                 await ctx.send(f"Congrats, you guessed the number {number} in {tries} tries!")
-#                 del game[ctx.channel.id]
-#                 return
-#             elif tries == 10:
-#                 await ctx.send(f"Sorry, you took too many tries! The number was {number}")
-#                 del game[ctx.channel.id]
-#                 return
-#             elif guess < number:
-#                 await ctx.send(f"Higher! {abs(10 - tries)}  tries remaining!")
-#             else:
-#                 await ctx.send(f"Lower! {abs(10 - tries)} tries remaining!")
-#
-#         def check(message):
-#             return message.author == ctx.author and message.channel == ctx.channel \
-#                    and ctx.channel.id in game and message.content.isdigit()
-#
-#         while ctx.channel.id in game and tries != 10:
-#             try:
-#                 msg = await client.wait_for('message', check=check, timeout=120)
-#             except asyncio.TimeoutError:
-#                 del game[ctx.channel.id]
-#                 return
-#             tries += 1
-#             await win(int(msg.content))
-# @client.event
-# async def on_message(message):
-#     if not message.author.bot:
-#         with open('level.json', 'r') as f:
-#             users = json.load(f)
-#         await update_data(users, message.author, message.guild)
-#         await add_experience(users, message.author, 4)
-#         await level_up(users, message.author, message.channel)
-#
-#         with open('level.json', 'w') as f:
-#             json.dump(users, f)
-#     await client.process_commands(message)
-#
-#
-# async def update_data(users, user, server):
-#     if not str(server.id) in users:
-#         users[str(server.id)] = {}
-#         if not str(user.id) in users[str(server.id)]:
-#             users[str(server.id)][str(user.id)] = {}
-#             users[str(server.id)][str(user.id)]['experience'] = 0
-#             users[str(server.id)][str(user.id)]['level'] = 1
-#     elif not str(user.id) in users[str(server.id)]:
-#         users[str(server.id)][str(user.id)] = {}
-#         users[str(server.id)][str(user.id)]['experience'] = 0
-#         users[str(server.id)][str(user.id)]['level'] = 1
-#
-#
-# async def add_experience(users, user, exp):
-#     users[str(user.guild.id)][str(user.id)]['experience'] += exp
-#
-#
-# async def level_up(users, user, channel):
-#     experience = users[str(user.guild.id)][str(user.id)]['experience']
-#     lvl_start = users[str(user.guild.id)][str(user.id)]['level']
-#     lvl_end = int(experience ** (1 / 4))
-#
-#     if lvl_start < lvl_end:
-#         await channel.send('{} has leveled up to Level {}'.format(user.mention, lvl_end))
-#         users[str(user.guild.id)][str(user.id)]['level'] = lvl_end
-#
-#
-# @client.command()
-# async def level(ctx, member: discord.Member = None):
-#     if not member:
-#         user = ctx.message.author
-#         with open('level.json', 'r') as f:
-#             users = json.load(f)
-#         lvl = users[str(ctx.guild.id)][str(user.id)]['level']
-#         exp = users[str(ctx.guild.id)][str(user.id)]['experience']
-#
-#         embed = discord.Embed(title='Level {}'.format(lvl), description=f"{exp} XP ", color=discord.Color.green())
-#         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-#         await ctx.send(embed=embed)
-#     else:
-#         with open('level.json', 'r') as f:
-#             users = json.load(f)
-#         lvl = users[str(ctx.guild.id)][str(member.id)]['level']
-#         exp = users[str(ctx.guild.id)][str(member.id)]['experience']
-#         embed = discord.Embed(title='Level {}'.format(lvl), description=f"{exp} XP", color=discord.Color.green())
-#         embed.set_author(name=member, icon_url=member.avatar_url)
-#
-#         await ctx.send(embed=embed)
-
-@client.command()
-async def talk(ctx, *, message):
-    """Talk with cleverbot! """
-    if ctx.author.bot:
-        return
-    response = await rs.get_ai_response(message)
-    response = response[0]['message']
-    async with ctx.typing():
-        await asyncio.sleep(random.randint(1, 5))
-    await ctx.reply(response)
-    rs.close()
 
 
 
