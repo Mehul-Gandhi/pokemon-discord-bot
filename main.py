@@ -158,10 +158,6 @@ async def afk(ctx, *, reason=None):
 
 ####PREFIXES#####
 
-@client.listen()
-async def on_message(message):
-    print(message.author.name + ": " + message.content)
-
 
 @client.command()
 async def prefix(ctx, new_prefix):
@@ -505,12 +501,5 @@ async def on_message(message):
         prefix = prefix[0].get("prefix")
         await message.channel.send(
             f"{random.choice(responses)} {format(message.author.mention)} {random.choice(emojis)}. The current server prefix is {prefix}")
-
-
-
-
-
-
-
 
 client.run(token)
