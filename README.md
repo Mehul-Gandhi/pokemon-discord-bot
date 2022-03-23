@@ -21,11 +21,14 @@ A Pokemon discord bot implemented in python. Contains pokemon minigames, a simpl
 - Has the following commands: party, catch, release, owner 
 ### Shop
 - Buy items from AntLionMan's shop!
+
  ![AntLionMan's Shop](assets/antlionman.png)
+ 
  ![Trainer's Bag](assets/bag.png)
 ### Anime
 - Search information about an anime in MAL.
 - Kawaii related anime commands: hug, kiss, baka, slap, punch, pat. These commands send a random anime picture and allows users to interact with one another.
+
 ![Anime Search](assets/animesearch.png)
   
 ### Games
@@ -62,7 +65,8 @@ A Pokemon discord bot implemented in python. Contains pokemon minigames, a simpl
 
 ![Poll](assets/poll.png)
 - View information about the server or a discord member. Shows join date, ID, Name, etc.
-
+### PostgreSQL
+- Information on the tables used are in postgres.pdf
 
 
 
