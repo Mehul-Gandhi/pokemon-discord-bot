@@ -27,7 +27,7 @@ client = commands.Bot(command_prefix=',', case_insensitive=True, help_command=No
 
 
 async def create_db_pool():
-    client.pg_con = await asyncpg.create_pool(database='postgres', user='postgres', password='Mehul09!')
+    client.pg_con = await asyncpg.create_pool(database='postgres', user='postgres', password='')
 
 
 class pokemon(commands.Cog):
