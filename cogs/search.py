@@ -21,7 +21,7 @@ from datetime import date, datetime
 dictionary = PyDictionary()
 
 urban_d = UrbanClient()
-api_key = "AIzaSyAJGcK_fHGyf2--HCA42rrXpjQUyMYMmWI"  # used for google image search
+api_key = ""  # used for google image search
 intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
