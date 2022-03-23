@@ -28,6 +28,7 @@ A Pokemon discord bot implemented in python. Contains pokemon minigames, a simpl
 ### Anime
 - Search information about an anime in MAL.
 - Kawaii related anime commands: hug, kiss, baka, slap, punch, pat. These commands send a random anime picture and allows users to interact with one another.
+
 ![Anime Search](assets/animesearch.png)
   
 ### Games
