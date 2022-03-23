@@ -21,7 +21,9 @@ A Pokemon discord bot implemented in python. Contains pokemon minigames, a simpl
 - Has the following commands: party, catch, release, owner 
 ### Shop
 - Buy items from AntLionMan's shop!
+
  ![AntLionMan's Shop](assets/antlionman.png)
+ 
  ![Trainer's Bag](assets/bag.png)
 ### Anime
 - Search information about an anime in MAL.
