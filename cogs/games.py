@@ -530,6 +530,14 @@ class games(commands.Cog):
         x = random.choice(tag)  # This is the user id of the person
         y = await ctx.author.guild.fetch_member(x)  # this is the user tag of the person
         await ctx.send("Spins a bottle and it lands on " + str(y))
+        
+    def rand_who(self):  # for the who function
+        with open("scramble.txt", "r") as file:
+            allText = file.read()
+            words = list(map(str, allText.split()))
+
+            # print random string
+            return random.choice(words)
 
 def setup(bot):
     bot.add_cog(games(bot))
