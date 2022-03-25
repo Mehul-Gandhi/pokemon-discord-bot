@@ -183,6 +183,12 @@ class trainer(commands.Cog):
                 await ctx.send(embed=embed)
                 # await ctx.send("Successfully caught " + member.display_name + " in a master ball." + " https://d1fs8ljxwyzba6.cloudfront.net/assets/editorial/2018/11/pokemon-lets-go-mewtwo-master-ball.jpg")
 
+    async def useitem(self, memberid, item):
+    """Decreases a user's specific item by one in the database."""
+    user = await self.bot.pg_con.fetch("SELECT * FROM users WHERE id = $1", memberid)
+    await self.bot.pg_con.execute("UPDATE users SET " + str(item) + " = $1 WHERE id = $2 ", user[0][str(item)] - 1,
+                                  memberid)
+
     @catch.error
     async def catch_error(self, ctx, error):
         if isinstance(error, commands.BadArgument) or isinstance(error, commands.MissingRequiredArgument):
